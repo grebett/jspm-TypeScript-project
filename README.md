@@ -13,24 +13,24 @@ __Sources:__
 
 If jspm, tsc or tsd are __not__ yet installed: 
 
-```
-npm install -g jspm tsc tsd
+```shell
+$ npm install -g jspm tsc tsd
 ```
 
 ## Init the project with npm
 
 This creates the `package.json` file. Fill it as you wish.
 
-```
-npm init
+```shell
+$ npm init
 ```
 
 ## Install jspm locally
 
 It is advised to have a version of jspm locally. Install it!
 
-```
-npm install jspm --save-dev
+```shell
+$ npm install jspm --save-dev
 ```
 
 ## Configurate the project for jspm usage
@@ -39,19 +39,19 @@ Like npm, jspm has an `init` command.
 Fill the answers as you wish, but the `config.js` default config file name is too common and can lead to conflicts.
 Feel free to modify it as you want. 
 
-```
-jspm init
+```shell
+$ jspm init
 ```
 
 ## Install your third-party packages
 
 Many solutions. Some examples below. See the documentation for more.
 
-```
-jspm install npm:lodash-node
-jspm install github:components/jquery
-jspm install jquery
-jspm install myname=npm:underscore
+```shell
+$ jspm install npm:lodash-node
+$ jspm install github:components/jquery
+$ jspm install jquery
+$ jspm install myname=npm:underscore
 ```
 	
 ## For each third-party package, add the TypeScript definitions
@@ -66,7 +66,7 @@ tsd install lodash
 
 You want to compile your TypeScript into pure JS, don't you? This options (that you're free to change) are required or convenient.
  
-```
+```JSON
 {
 	"compilerOptions": {
 		"target": "es5",
@@ -88,7 +88,7 @@ You want to compile your TypeScript into pure JS, don't you? This options (that 
 
 Add the jspm scripts, the polyfill is optional depending on your app browsers support.
 
-```
+```HTML
 <script src="jspm_packages/system.js"></script>
 <script src="jspm_packages/system-polyfill.js"></script>
 <script src="jspmconfig.js"></script>
@@ -96,7 +96,7 @@ Add the jspm scripts, the polyfill is optional depending on your app browsers su
 
 Then, in a `<script>` tag, link your main JS file.
 
-```
+```JavaScript
 System.import('app/main').then(null, console.error.bind(console));
 ```
 
@@ -104,14 +104,14 @@ System.import('app/main').then(null, console.error.bind(console));
 
 Don't forget to compile your TypeScript files into JS ones.
 
-```
-tsc -w -p .
+```shell
+$ tsc -w -p .
 ```
 
 A live reload server could be useful for development. Have a glance on [lite-server](https://github.com/johnpapa/lite-server)!
 
-```
-lite-server .
+```shell
+$ lite-server .
 ```
 
 ## Here you are!
